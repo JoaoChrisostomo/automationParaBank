@@ -1,0 +1,37 @@
+usuario_valido:
+  username: 'Kamilly'
+  password: 'R6LBaLBkOu'
+campos_em_branco:
+  username: ''
+  password: ''
+senha_em_branco:
+  username: 'Kamilly'
+  password: ''
+senha_errada:
+  username: 'Kamilly'
+  password: '123'
+usuario_existente:
+  firstname: 'Kamilly Emilly'
+  lastname: 'Batista'
+  address: 'Avenida José Ozildo Baltieri'
+  city: 'Guarulhos'
+  state: 'SP'
+  zipcode: '07151-000'
+  phone: '(11) 98191-3797'
+  ssn: '947.400.107-39'
+  username: 'Kamilly'
+  password: 'R6LBaLBkOu'
+  confirmpassword: 'R6LBaLBkOu'
+campo_obrigatorio_em_branco:
+  firstname: 'Kamilly Emilly'
+  lastname: 'Batista'
+  address: 'Avenida José Ozildo Baltieri'
+  city: 'Guarulhos'
+  state: 'SP'
+  zipcode: '07151-000'
+  phone: '(11) 98191-3797'
+  ssn: '947.400.107-39'
+  username: 'Kamilly'
+  password: ''
+  confirmpassword: ''
+something_for_search: 'potato'

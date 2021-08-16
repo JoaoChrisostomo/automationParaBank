@@ -1,0 +1,38 @@
+<% def timestamps
+  date = Time.now.strftime('%Y%m%d').to_s
+  time = Time.now.strftime('%H-%M-%S').to_s
+  "#{date}_#{time}"
+end %>
+
+<% RUN_TSTAMPs = timestamps.freeze %>
+
+# Template
+default_qa: -p html_report -p json_report -p chrome -p qa -p not_parallel_running
+default_prd: -p html_report -p json_report -p chrome -p prd -p not_parallel_running -p report_builder
+default_android: -p html_report -p json_report -p android -p qa -p not_parallel_running
+parallel: -p html_parallel -p json_parallel -p qa -p parallel_running --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log
+desktop: -p html_report -p json_report -p chrome -p not_parallel_running
+
+# Reports
+html_report: --format pretty --format html --out=reports/features_report_<%= RUN_TSTAMPs %>.html
+html_parallel: --format pretty --format html --out=reports/features_report_<%= ENV['TEST_ENV_NUMBER'] %>_<%= RUN_TSTAMPs %>.html
+json_report: --format pretty --format json --out=reports/features_report_<%= RUN_TSTAMPs %>.json
+json_parallel: --format pretty --format json --out=reports/features_report_<%= ENV['TEST_ENV_NUMBER'] %>_<%= RUN_TSTAMPs %>.json
+
+# Browsers
+chrome: BROWSER=chrome
+android: BROWSER=android
+
+# Environment
+qa: ENVIRONMENT=qa
+prd: ENVIRONMENT=prd
+
+# Parallel
+parallel_running: PARALLELRUNNING=true
+not_parallel_running: PARALLELRUNNING=false
+
+# Headless
+headless:  HEADLESS=true
+
+# Reporters
+report_builder: REPORTBUILDER=true
